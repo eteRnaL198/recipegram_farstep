@@ -8,6 +8,19 @@
   </div>
 </section>
 
+<% if @user.errors.any? %>
+  <section class="section">
+    <div class="notification is-danger">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohiited this object being saved: not successfully</h2>
+      <ul>
+        <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  </section>
+<% end %>
+
 <section class="section">
   <div class="container">
     <div class="columns is-centered">
